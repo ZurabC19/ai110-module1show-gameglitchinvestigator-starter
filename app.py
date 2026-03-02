@@ -36,7 +36,7 @@ if "difficulty" not in st.session_state:
 if st.session_state.difficulty != difficulty:
     st.session_state.difficulty = difficulty
     st.session_state.secret = random.randint(low, high)
-    st.session_state.attempts = 1
+    st.session_state.attempts = 0
     st.session_state.score = 0
     st.session_state.status = "playing"
     st.session_state.history = []
@@ -45,7 +45,7 @@ if "secret" not in st.session_state:
     st.session_state.secret = random.randint(low, high)
 
 if "attempts" not in st.session_state:
-    st.session_state.attempts = 1
+    st.session_state.attempts = 0
 
 if "score" not in st.session_state:
     st.session_state.score = 0
@@ -71,20 +71,21 @@ with st.expander("Developer Debug Info"):
     st.write("Difficulty:", difficulty)
     st.write("History:", st.session_state.history)
 
-# FIX: Removed difficulty suffix from key — was causing input to reset on every difficulty change.
-raw_guess = st.text_input("Enter your guess:", key="guess_input")
+# FIX: Wrapped input and submit inside a form so the value isn't cleared before submit logic runs.
+with st.form("guess_form"):
+    raw_guess = st.text_input("Enter your guess:", key="guess_input")
+    submit = st.form_submit_button("Submit Guess 🚀")
 
-col1, col2, col3 = st.columns(3)
+# New Game and Show Hint live outside the form so they don't interfere with submission.
+col1, col2 = st.columns(2)
 with col1:
-    submit = st.button("Submit Guess 🚀")
-with col2:
     new_game = st.button("New Game 🔁")
-with col3:
+with col2:
     show_hint = st.checkbox("Show hint", value=True)
 
 if new_game:
     # FIX: Was resetting attempts to 0 and hardcoding range to 1-100. Copilot helped fix both.
-    st.session_state.attempts = 1
+    st.session_state.attempts = 0
     st.session_state.secret = random.randint(low, high)
     st.session_state.score = 0
     st.session_state.status = "playing"
