@@ -38,6 +38,7 @@ It wrote the code, ran away, and now the game is unplayable.
 - Refactored all game logic out of `app.py` into `logic_utils.py` and imported it.
 
 ## 📸 Demo
-<img width="2554" height="1270" alt="image" src="https://github.com/user-attachments/assets/3cbcc8b8-c600-46f6-8186-c6b10217bde5" />
+<img width="2543" height="1243" alt="image" src="https://github.com/user-attachments/assets/d1b81793-c10b-44d0-b41c-47c94faf6469" />
+
 
 
