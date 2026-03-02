@@ -4,7 +4,7 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 
 ## 1. What was broken when you started?
 
-There was a good amount of bugs in the initial app. The hints seem to be inverted, so whenever you pick a number that is higher than the answer, the hint tells you to go higher, the inverse applies. There is always an extra attempt left when the game finishes.  The score can go negative (not sure if intended). The range description based on difficulty doesn't match the actual range given in game . 
+There were a good number of bugs in the initial app. The hints seem to be inverted, so whenever you pick a number that is higher than the answer, the hint tells you to go higher; the inverse applies. There is always an extra attempt left when the game finishes.  The score can go negative (not sure if intended). The range description based on difficulty doesn't match the actual range given in-game. Submit button is not responsive.
 
 ---
 
